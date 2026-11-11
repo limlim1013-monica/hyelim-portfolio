@@ -87,8 +87,17 @@
   .view-btn { margin-top: 18px; display: inline-block; font-size: 14px; font-weight: 700; color: var(--blue); border-bottom: 2px solid var(--blue); cursor: pointer; background: none; border-top: 0; border-left: 0; border-right: 0; font-family: inherit; }
 
   /* slide gallery */
-  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  .gallery button { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #fff; cursor: zoom-in; padding: 0; position: relative; }
+  .slides-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+  .slides-head .sec-title { margin-bottom: 0; }
+  .slides-nav { display: flex; gap: 8px; flex-shrink: 0; }
+  .slides-nav button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: var(--ink); font-size: 20px; line-height: 1; cursor: pointer; font-family: inherit; }
+  .slides-nav button:hover:not(:disabled) { border-color: var(--blue); color: var(--blue); }
+  .slides-nav button:disabled { opacity: .35; cursor: default; }
+  .gallery { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; overscroll-behavior-x: contain; padding-bottom: 14px; scrollbar-width: thin; scrollbar-color: #C9CCE6 transparent; }
+  .gallery::-webkit-scrollbar { height: 8px; }
+  .gallery::-webkit-scrollbar-thumb { background: #C9CCE6; border-radius: 4px; }
+  .gallery button { flex: 0 0 300px; scroll-snap-align: start; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #fff; cursor: zoom-in; padding: 0; position: relative; }
+  .gallery button img { width: 100%; }
   .gallery button span { position: absolute; left: 8px; top: 8px; background: rgba(0,0,0,.6); color: #fff; font-size: 12px; font-weight: 700; padding: 2px 7px; border-radius: 6px; }
   .gallery button:hover { border-color: var(--blue); }
 
@@ -108,12 +117,13 @@
   @media (max-width: 960px) {
     .metrics, .strengths { grid-template-columns: 1fr 1fr; }
     .project { grid-template-columns: 1fr; }
-    .gallery { grid-template-columns: repeat(3, 1fr); }
+    .gallery button { flex-basis: 260px; }
   }
   @media (max-width: 640px) {
     nav ul { display: none; }
     .metrics, .strengths { grid-template-columns: 1fr; }
-    .gallery { grid-template-columns: repeat(2, 1fr); }
+    .gallery button { flex-basis: 78%; }
+    .slides-nav { display: none; }
     .pro { grid-template-columns: 1fr; gap: 2px; }
     .pro dd { margin-bottom: 8px; }
     .lb { padding: 56px 8px; }
@@ -251,7 +261,13 @@
 <section id="slides" class="alt">
   <div class="wrap">
     <div class="sec-label">SLIDES</div>
-    <h2 class="sec-title">전체 슬라이드 (42장)</h2>
+    <div class="slides-head">
+      <h2 class="sec-title">전체 슬라이드 (42장)</h2>
+      <div class="slides-nav">
+        <button type="button" id="galPrev" aria-label="이전 슬라이드 목록">‹</button>
+        <button type="button" id="galNext" aria-label="다음 슬라이드 목록">›</button>
+      </div>
+    </div>
     <div class="gallery" id="gallery"></div>
   </div>
 </section>
@@ -351,6 +367,16 @@ for (let n = 1; n <= TOTAL; n++) {
   b.innerHTML = `<img src="${img(n)}" alt="슬라이드 ${n}" loading="lazy"><span>${n}</span>`;
   gallery.appendChild(b);
 }
+const galPrev = document.getElementById('galPrev'), galNext = document.getElementById('galNext');
+function galState() {
+  galPrev.disabled = gallery.scrollLeft <= 2;
+  galNext.disabled = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 2;
+}
+galPrev.addEventListener('click', () => gallery.scrollBy({ left: -gallery.clientWidth * 0.9 }));
+galNext.addEventListener('click', () => gallery.scrollBy({ left: gallery.clientWidth * 0.9 }));
+gallery.addEventListener('scroll', galState, { passive: true });
+window.addEventListener('resize', galState);
+galState();
 
 // lightbox
 const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCount = document.getElementById('lbCount');
