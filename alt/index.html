@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>임혜림 | 위치기반 안심케어 서비스 기획 포트폴리오</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="알트(ALT) 위치기반 안심케어 서비스 기획 지원용, 9년차 서비스기획 PM 임혜림 포트폴리오">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --blue: #0000ED; --blue-soft: #EEF2FD; --accent: #FC3B14; --accent-soft: #FFF3EF;
+    --ink: #1F1F1F; --text: #444; --muted: #7A7A7A; --line: #E3E6EE; --panel: #F4F6FB; --cyan: #A6F4FF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body { font-family: Pretendard, "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; color: var(--text); line-height: 1.6; background: #fff; word-break: keep-all; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* nav */
+  header.nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  header.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { font-weight: 800; color: var(--ink); letter-spacing: -.01em; }
+  .brand span { color: var(--blue); }
+  nav ul { display: flex; gap: 28px; list-style: none; font-size: 15px; font-weight: 500; }
+  nav a:hover { color: var(--blue); }
+
+  /* hero */
+  .hero { background: var(--blue); color: #fff; padding: 96px 0 88px; }
+  .hero .eyebrow { color: var(--cyan); font-weight: 700; letter-spacing: .08em; font-size: 14px; }
+  .hero h1 { font-size: clamp(32px, 5vw, 54px); font-weight: 800; line-height: 1.25; margin: 14px 0 22px; letter-spacing: -.02em; }
+  .hero h1 em { font-style: normal; color: var(--cyan); }
+  .hero p.lead { font-size: 18px; max-width: 720px; opacity: .92; }
+  .hero .contact { margin-top: 32px; font-size: 15px; opacity: .9; }
+  .hero .contact a { border-bottom: 1px solid rgba(255,255,255,.5); }
+  .hero .actions { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 15px; }
+  .btn.primary { background: #fff; color: var(--blue); }
+  .btn.ghost { border: 1px solid rgba(255,255,255,.6); color: #fff; }
+
+  section { padding: 88px 0; }
+  section.alt { background: #FAFBFD; }
+  .sec-label { color: var(--blue); font-weight: 800; font-size: 14px; letter-spacing: .08em; }
+  .sec-title { font-size: clamp(26px, 3.4vw, 36px); color: var(--ink); font-weight: 800; letter-spacing: -.02em; margin: 6px 0 36px; }
+
+  /* metrics */
+  .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .metric { background: var(--panel); border-radius: 16px; padding: 26px 28px; }
+  .metric b { display: block; font-size: 40px; font-weight: 900; color: var(--blue); letter-spacing: -.02em; line-height: 1.15; }
+  .metric span { font-size: 15px; color: var(--text); }
+  .strengths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+  .strength { border: 1px solid var(--line); border-radius: 16px; padding: 24px 26px; background: #fff; }
+  .strength h3 { font-size: 18px; color: var(--ink); margin-bottom: 8px; }
+  .strength p { font-size: 15px; }
+
+  /* career */
+  .timeline { position: relative; padding-left: 28px; border-left: 2px solid var(--line); }
+  .job { position: relative; padding: 0 0 40px 24px; }
+  .job:last-child { padding-bottom: 0; }
+  .job::before { content: ""; position: absolute; left: -36px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid var(--blue); }
+  .job .period { font-size: 14px; color: var(--muted); font-weight: 600; }
+  .job h3 { font-size: 22px; color: var(--ink); margin: 2px 0 2px; }
+  .job .role { font-size: 15px; color: var(--blue); font-weight: 600; margin-bottom: 10px; }
+  .job ul { list-style: none; display: grid; gap: 4px; }
+  .job li { font-size: 15.5px; padding-left: 14px; position: relative; }
+  .job li::before { content: ""; position: absolute; left: 0; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+  .badge-new { display: inline-block; background: var(--accent); color: #fff; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 999px; vertical-align: 3px; margin-left: 6px; letter-spacing: .04em; }
+
+  /* projects */
+  .projects { display: grid; gap: 28px; }
+  .project { display: grid; grid-template-columns: 420px 1fr; gap: 32px; border: 1px solid var(--line); border-radius: 20px; padding: 28px; background: #fff; }
+  .project .thumb { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); cursor: zoom-in; position: relative; align-self: start; }
+  .project .thumb::after { content: "슬라이드 보기 ›"; position: absolute; right: 10px; bottom: 10px; background: rgba(0,0,237,.9); color: #fff; font-size: 13px; font-weight: 700; padding: 5px 10px; border-radius: 8px; }
+  .project .meta { font-size: 14px; color: var(--muted); font-weight: 600; }
+  .project .meta .no { color: var(--blue); font-weight: 900; margin-right: 8px; }
+  .project h3 { font-size: 24px; color: var(--ink); margin: 4px 0 4px; letter-spacing: -.01em; }
+  .project .one { font-size: 16px; margin-bottom: 18px; }
+  .pro { display: grid; grid-template-columns: 92px 1fr; gap: 8px 14px; font-size: 15px; }
+  .pro dt { font-weight: 800; font-size: 13px; letter-spacing: .04em; padding-top: 2px; }
+  .pro dt.p { color: var(--accent); } .pro dt.r { color: var(--blue); } .pro dt.o { color: #0B8A5B; }
+  .pro dd ul { list-style: none; } .pro dd li { position: relative; padding-left: 12px; } .pro dd li::before { content: "·"; position: absolute; left: 0; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+  .tag { background: var(--blue-soft); color: var(--blue); font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
+  .view-btn { margin-top: 18px; display: inline-block; font-size: 14px; font-weight: 700; color: var(--blue); border-bottom: 2px solid var(--blue); cursor: pointer; background: none; border-top: 0; border-left: 0; border-right: 0; font-family: inherit; }
+
+  /* slide gallery */
+  .slides-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+  .slides-head .sec-title { margin-bottom: 0; }
+  .slides-nav { display: flex; gap: 8px; flex-shrink: 0; }
+  .slides-nav button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: var(--ink); font-size: 20px; line-height: 1; cursor: pointer; font-family: inherit; }
+  .slides-nav button:hover:not(:disabled) { border-color: var(--blue); color: var(--blue); }
+  .slides-nav button:disabled { opacity: .35; cursor: default; }
+  .gallery { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; overscroll-behavior-x: contain; padding-bottom: 14px; scrollbar-width: thin; scrollbar-color: #C9CCE6 transparent; }
+  .gallery::-webkit-scrollbar { height: 8px; }
+  .gallery::-webkit-scrollbar-thumb { background: #C9CCE6; border-radius: 4px; }
+  .gallery button { flex: 0 0 300px; scroll-snap-align: start; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #fff; cursor: zoom-in; padding: 0; position: relative; }
+  .gallery button img { width: 100%; }
+  .gallery button span { position: absolute; left: 8px; top: 8px; background: rgba(0,0,0,.6); color: #fff; font-size: 12px; font-weight: 700; padding: 2px 7px; border-radius: 6px; }
+  .gallery button:hover { border-color: var(--blue); }
+
+  /* lightbox */
+  .lb { position: fixed; inset: 0; background: rgba(10,12,30,.92); display: none; align-items: center; justify-content: center; z-index: 100; padding: 56px 72px; }
+  .lb.open { display: flex; }
+  .lb img { max-height: 100%; max-width: 100%; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,.4); }
+  .lb .ctl { position: absolute; background: rgba(255,255,255,.12); color: #fff; border: 0; width: 48px; height: 48px; border-radius: 50%; font-size: 24px; cursor: pointer; }
+  .lb .ctl:hover { background: rgba(255,255,255,.25); }
+  .lb .prev { left: 14px; top: 50%; transform: translateY(-50%); } .lb .next { right: 14px; top: 50%; transform: translateY(-50%); }
+  .lb .close { right: 14px; top: 10px; }
+  .lb .count { position: absolute; bottom: 16px; left: 0; right: 0; text-align: center; color: #cfd3e6; font-size: 14px; }
+
+  footer { background: #0A0A3A; color: #C9CCE6; padding: 48px 0; font-size: 14px; }
+  footer b { color: #fff; }
+
+  @media (max-width: 960px) {
+    .metrics, .strengths { grid-template-columns: 1fr 1fr; }
+    .project { grid-template-columns: 1fr; }
+    .gallery button { flex-basis: 260px; }
+  }
+  @media (max-width: 640px) {
+    nav ul { display: none; }
+    .metrics, .strengths { grid-template-columns: 1fr; }
+    .gallery button { flex-basis: 78%; }
+    .slides-nav { display: none; }
+    .pro { grid-template-columns: 1fr; gap: 2px; }
+    .pro dd { margin-bottom: 8px; }
+    .lb { padding: 56px 8px; }
+  }
+  @media print {
+    header.nav, .lb, .view-btn, #slides { display: none !important; }
+    .hero { background: #fff; color: var(--ink); padding: 24px 0; }
+    .hero .eyebrow, .hero h1 em { color: var(--blue); }
+    section { padding: 28px 0; break-inside: avoid; }
+    .project { break-inside: avoid; }
+  }
+  .fit { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .fit .strength h3 { color: var(--accent); }
+  .fit .strength ul { list-style: none; display: grid; gap: 6px; margin: 4px 0 14px; }
+  .fit .strength li { font-size: 15px; padding-left: 14px; position: relative; }
+  .fit .strength li::before { content: "·"; position: absolute; left: 2px; color: var(--muted); }
+  .fit .strength .ref { font-size: 14px; font-weight: 700; color: var(--ink); background: linear-gradient(transparent 55%, var(--accent-soft) 55%); display: inline; }
+  @media (max-width: 760px) { .fit { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">HyeLim<span>.</span> Portfolio</a>
+    <nav><ul>
+      <li><a href="#fit">Fit</a></li>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#slides">Slides</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">SERVICE PLANNER · PM / 알트(ALT) 위치기반 안심케어 서비스 기획 지원</div>
+    <h1>단말 연동부터 정책·운영까지<br><em>서비스 전 과정</em>을 기획해 온 9년차 PM, 임혜림입니다</h1>
+    <p class="lead">전용 웨어러블 연동 앱 기획, 비대면 진료 플랫폼 회원가입·API 연동, 앱 구축부터 출시·운영까지 수행했습니다. 서비스 구조와 정책을 정의하고, 개발·외부 파트너와 범위를 조율해 일정 안에 결과를 만듭니다.</p>
+    <div class="actions">
+      <a class="btn primary" href="#fit">직무 연결 경험 보기</a>
+      <a class="btn ghost" href="#projects">대표 프로젝트 보기</a>
+    </div>
+    <div class="contact">Contact · <a href="mailto:limlim1013@naver.com">limlim1013@naver.com</a></div>
+  </div>
+</div>
+
+<section id="fit">
+  <div class="wrap">
+    <div class="sec-label">FIT</div>
+    <h2 class="sec-title">알트 직무와 연결되는 경험</h2>
+    <div class="fit">
+      <div class="strength"><h3>전용 단말 연계 서비스</h3><ul>
+        <li>FreyaX 전용 밴드(CHANDA) 페어링·연결 실패 케이스 정의</li>
+        <li>밴드 측정 데이터 앱 화면 기획, 연동 TS/TC 관리</li>
+        <li>Snoozz 웨어러블·IoT 데이터 연동 범위 정리</li></ul>
+        <p class="ref">FreyaX, Snoozz</p></div>
+      <div class="strength"><h3>서비스·회원·개인정보 정책 수립</h3><ul>
+        <li>FreyaX 회원가입 정책 정의, 개발 전 의사결정 관리표 운영</li>
+        <li>솜즈-솔닥 약관·본인인증·소셜 회원가입 범위와 FLOW 정의</li>
+        <li>법적 의무 공시, 온라인 민원 접수로 개인정보 이슈 예방</li></ul>
+        <p class="ref">FreyaX, 솜즈, 신한자산운용</p></div>
+      <div class="strength"><h3>관리자 페이지·운영도구 기획</h3><ul>
+        <li>신한자산운용 PC·Mobile·Admin UI/UX 기획, TC 검수</li>
+        <li>콘텐츠 버전관리, 업로드 게시판 개선의 관리자 페이지 기획</li>
+        <li>사내 계약관리 시스템 구축, 계약 처리시간 70% 이상 단축</li></ul>
+        <p class="ref">신한자산운용, 아발론교육</p></div>
+      <div class="strength"><h3>외부 연동·출시·운영 안정화</h3><ul>
+        <li>솜즈-솔닥 API 연동 문서 정리 및 연동 QA(TS/TC) 관리</li>
+        <li>배달 주문 플랫폼(요기요) 내 기부 결제 FLOW 기획</li>
+        <li>바슈롬 앱 구축·출시·운영, 신규 가입자 6.4만 명 달성</li></ul>
+        <p class="ref">솜즈, 바슈롬, 행복두끼</p></div>
+    </div>
+  </div>
+</section>
+<section id="summary" class="alt">
+  <div class="wrap">
+    <div class="sec-label">SUMMARY</div>
+    <h2 class="sec-title">숫자로 보는 성과</h2>
+    <div class="metrics">
+      <div class="metric"><b>174%</b><span>SOL ETF 메인 개편 후 방문자 수 증가</span></div>
+      <div class="metric"><b>193%</b><span>펀드·ETF 상품 페이지 체류시간 증가</span></div>
+      <div class="metric"><b>175%</b><span>행복두끼 챌린지 시즌2 목표 금액 달성</span></div>
+      <div class="metric"><b>6.4만 명</b><span>바슈롬 앱 런칭 후 신규 가입자</span></div>
+      <div class="metric"><b>80억 원</b><span>아발론교육 신사업 매출 달성</span></div>
+      <div class="metric"><b>70%↓</b><span>계약관리시스템 도입 후 처리시간 단축</span></div>
+    </div>
+    <div class="strengths">
+      <div class="strength"><h3>신규 서비스 기획 A to Z</h3><p>시장·경쟁사 분석과 수요조사로 사업 가설을 검증하고, 서비스 정의부터 런칭·운영까지 수행합니다.</p></div>
+      <div class="strength"><h3>데이터 기반 고도화</h3><p>사용자 행동 데이터, A/B 테스트, VOC를 분석해 이탈률·체류시간·전환율을 개선합니다.</p></div>
+      <div class="strength"><h3>프로젝트·KPI 관리</h3><p>WBS·KPI를 설계하고 개발·디자인·법무·경영진 사이의 이슈를 조율해 일정 내 완료합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="career">
+  <div class="wrap">
+    <div class="sec-label">CAREER</div>
+    <h2 class="sec-title">경력</h2>
+    <div class="timeline">
+      <div class="job">
+        <div class="period">2026.02 – 2026.09</div>
+        <h3>에임넥스트</h3>
+        <div class="role">사업기획2팀 · 프리랜서</div>
+        <ul>
+          <li>시장·경쟁사 분석으로 신규 사업 후보 10건 발굴, 우선 추진 과제 3건 선정</li>
+          <li>사업 타당성 검토 자료 6건 작성, 신규 서비스 2건 투자 승인에 기여</li>
+          <li>WBS 관리로 주요 과제 15건 중 14건 일정 내 완료</li>
+          <li>서비스 운영 프로세스 4개 구축·개선으로 평균 처리 시간 35% 단축</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="period">2021.08 – 2024.12</div>
+        <h3>신한자산운용</h3>
+        <div class="role">DT/마케팅 기획실 · 과장</div>
+        <ul>
+          <li>신한자산운용·SOL ETF 디지털 플랫폼 설계·구축 및 운영</li>
+          <li>디지털 플랫폼 방문자 수 증가 (신한자산운용 138%, SOL ETF 174%)</li>
+          <li>펀드·ETF 상품 페이지 체류시간 193% 증가</li>
+          <li>유튜브 구독자 3.7만, 카카오 채널 구독자 2.7만 확보</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="period">2020.03 – 2021.07</div>
+        <h3>넥스트컬쳐</h3>
+        <div class="role">서비스기획운영팀 · 대리</div>
+        <ul>
+          <li>행복두끼 챌린지 시즌1 142%, 시즌2 175% 목표 금액 달성</li>
+          <li>에너지 관리 시스템 구축·운영 후 매출 127% 증가</li>
+          <li>바슈롬 앱 런칭 후 신규 가입자 6.4만 명 달성</li>
+          <li>롯데 음료학교 신제품 '까늉' 펀딩 232% 달성</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="period">2019.06 – 2020.03</div>
+        <h3>그로브소프트</h3>
+        <div class="role">플랫폼기획운영팀 · 대리</div>
+        <ul>
+          <li>홈씨씨 디지털 플랫폼 서비스 만족도 4.62점 (5점 만점)</li>
+          <li>아모레퍼시픽몰 앱 설치 후 첫 사용 7일 유지율 45%</li>
+          <li>삼성 글로벌 MBA 교육 플랫폼 기획, 직원 2,800명 수료</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="period">2014.01 – 2016.12</div>
+        <h3>아발론교육</h3>
+        <div class="role">서비스기획운영팀 · 주임</div>
+        <ul>
+          <li>신사업 추진 후 매출 약 80억 원, 연평균 사용자 3.5만 명 달성</li>
+          <li>계약관리시스템 구축으로 계약 처리 시간 평균 70% 이상 단축</li>
+          <li>데이터 분석 기반 상품 개선으로 온라인 상품 영업이익 150% 증가</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="alt">
+  <div class="wrap">
+    <div class="sec-label">PROJECTS</div>
+    <h2 class="sec-title">대표 프로젝트</h2>
+    <div class="projects" id="projectList"></div>
+  </div>
+</section>
+
+<section id="slides">
+  <div class="wrap">
+    <div class="sec-label">SLIDES</div>
+    <div class="slides-head">
+      <h2 class="sec-title">전체 슬라이드 (40장)</h2>
+      <div class="slides-nav">
+        <button type="button" id="galPrev" aria-label="이전 슬라이드 목록">‹</button>
+        <button type="button" id="galNext" aria-label="다음 슬라이드 목록">›</button>
+      </div>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><b>임혜림 Hyelim, Lim</b> · 서비스기획 PM · limlim1013@naver.com<br>2026.11 · 알트(ALT) 위치기반 안심케어 서비스 기획 지원</div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="슬라이드 보기">
+  <button class="ctl close" aria-label="닫기" data-act="close">×</button>
+  <button class="ctl prev" aria-label="이전 슬라이드" data-act="prev">‹</button>
+  <img id="lbImg" alt="">
+  <button class="ctl next" aria-label="다음 슬라이드" data-act="next">›</button>
+  <div class="count" id="lbCount"></div>
+</div>
+
+<script>
+const SHOW = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43];
+const img = n => `images/slide-${String(n).padStart(2, '0')}.jpg`;
+
+const projects = [
+  { no: '01', period: '2026', org: '에임넥스트', title: 'FreyaX · 전용 밴드 연동 여성 헬스케어 앱',
+    one: '전용 웨어러블 중심 사업안을 201명 수요조사로 검증해 App-first로 전환하고, 밴드 연동 앱 화면과 연동 정책을 기획했습니다.',
+    problem: ['전용 웨어러블(CHANDA 밴드) 중심 사업안의 시장성이 검증되지 않음'],
+    role: ['1·2차 수요조사 설계·배포·분석, TF 보고', '앱 상세 요구정의·회원가입 정책·의사결정 관리표 작성', '밴드 페어링·연결 실패 케이스 정의, 메인·라이프로그·리포트 화면 기획, 밴드 연동 TS/TC 관리'],
+    outcome: ['타겟 웨어러블 실사용률 20.0%, 앱·워치 연동 선호 68.7%를 근거로 App-first 진입안 제안', '전용 기기는 2단계로 분리해 개발 범위와 리스크 축소'],
+    tags: ['단말 연동', '회원 정책', '요구사항 정의', '수요조사'], slides: [8, 9, 10] },
+  { no: '02', period: '2026', org: '에임넥스트', title: '솜즈 브랜드 페이지 · 비대면 진료 연동',
+    one: "불면증 디지털치료기기 '솜즈'의 브랜드 페이지와 비대면 진료 플랫폼 '솔닥'의 회원가입·진료 연동 플로우와 QA를 리딩했습니다.",
+    problem: ['브랜드 페이지에서 진료까지 이어지는 경로와 외부 플랫폼 연동 기준이 없음'],
+    role: ['와이어프레임·신청서 항목 정의, 리뷰 반영', '연동 FLOW·API 연동 문의서, 계정·통신·스펙 문서 정리', '연동 QA 테스트케이스(TS/TC) 관리, 카카오 소셜 회원가입 FLOW 정의'],
+    outcome: ['약관·본인인증·병원 리스트는 솔닥 솔루션을 쓰도록 범위를 정의해 자사 개발 범위 축소'],
+    tags: ['외부 연동', 'API', '회원가입 정책', 'QA'], slides: [12] },
+  { no: '03', period: '2020–2021', org: '넥스트컬쳐', title: '바슈롬 모바일 앱',
+    one: '전화 주문에 의존하던 오프라인 렌즈 구매 흐름을 앱 예약 서비스로 바꾸고, 구축부터 출시·운영까지 수행했습니다.',
+    problem: ['렌즈 수령까지 최소 6일, 안경원 주문 착오로 인한 손실 비용 발생'],
+    role: ['구매 Flow 개선안·화면설계서·프로토타입 기획', '회원 DB 개설과 보안 강화로 고객 정보 유출 방지', '마이 안경원·나의 시력·나의 렌즈·렌즈 예약 기능 정의'],
+    outcome: ['렌즈 수령 기간 평균 6일 → 3일로 단축', '앱 런칭 후 신규 가입자 6.4만 명 달성·유지'],
+    tags: ['앱 구축', '출시·운영', 'Flow 개선'], slides: [14, 15, 16, 17, 18, 19, 20, 21] },
+  { no: '04', period: '2021–2024', org: '신한자산운용', title: '신한자산운용 디지털 플랫폼',
+    one: '6개 부서 심층 인터뷰로 요구사항을 정의하고, Admin과 법적 의무 공시까지 포함해 플랫폼을 재설계했습니다.',
+    problem: ['상품 정보 탐색이 어렵고, 법적 의무 공시·민원·콘텐츠 관리 체계가 노후화'],
+    role: ['2주간 6개 부서 심층 인터뷰, 문제 카테고리화와 메뉴 속성 정의', 'IA 설계, PC·MO·Admin UI/UX 기획', '테스트케이스 정의·검수, 운영 배포 관리'],
+    outcome: ['디지털 플랫폼 방문자 수 138% 증가', '민원 신청·법적 의무 공시 메뉴로 개인정보·법적 이슈 예방'],
+    tags: ['관리자 페이지', 'IA 설계', '규제 대응', 'TC 관리'], slides: [22, 23, 24, 25, 26, 27, 28] },
+  { no: '05', period: '2026', org: '에임넥스트', title: 'Snoozz · 수면 웰니스 B2B2C 사업 제안',
+    one: "불면증 DTx '솜즈'의 CBT-i 자산을 교대근무자 특화 웰니스로 전환하는 B2B2C 사업 재개안을 설계했습니다.",
+    problem: ['과거 중단된 사업으로, 재개하려면 지불자·차별화·투입 규모에 대한 근거가 필요'],
+    role: ['영국 Sleepio(Big Health) 사업·서비스·앱 벤치마킹', '웨어러블·IoT 데이터 연동 범위와 5단계 서비스 구조 정리', '채널 전략·12주 사업장 PoC 계획 수립'],
+    outcome: ['기업 안전보건 예산 + 보험사 부가서비스 2개 축 B2B2C 채널 전략 제안'],
+    tags: ['B2B2C', '사업 모델', '웨어러블 연동'], slides: [29] },
+  { no: '06', period: '2021–2024', org: '신한자산운용', title: 'SOL ETF 브랜드·플랫폼',
+    one: 'ETF 브랜드 구상부터 플랫폼 구축·운영까지 수행하고, 증권사 시장 정보 API를 연동했습니다.',
+    problem: ['고객과 신한 ETF를 연결할 매체와 브랜드가 없어 상품 인지도가 낮음'],
+    role: ['SOL ETF 브랜드 구상, 플랫폼 구축 프로젝트 기획·관리', '증권사 시장 정보 API 연동, 상품 상세 정보 기획', '메인 UI/UX 개선'],
+    outcome: ['메인 개편 후 방문자 수 174% 증가', '펀드·ETF 상품 페이지 체류시간 193% 증가'],
+    tags: ['플랫폼 구축', 'API 연동', 'UI/UX'], slides: [31, 32, 33, 34, 35, 36] },
+  { no: '07', period: '2020–2021', org: '넥스트컬쳐', title: 'SK행복나래 행복두끼 챌린지',
+    one: '개인·기업·지자체가 함께하는 매칭 기부 플랫폼과 배달 주문 플랫폼 내 기부 결제 서비스를 기획했습니다.',
+    problem: ['복지 사각지대 아동 상당수가 지자체로부터 하루 1끼만 지원받음'],
+    role: ['캠페인 기획 및 성과 분석', '요기요 앱 기부 결제 서비스 플로우·화면 설계', '기부 내역 DB 저장으로 연말정산 공제 지원'],
+    outcome: ['시즌1 142%, 시즌2 175% 목표 금액 달성'],
+    tags: ['외부 플랫폼 연동', '결제 플로우'], slides: [37, 38, 39, 40, 41, 42] }
+];
+const list = document.getElementById('projectList');
+const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const li = arr => '<ul>' + arr.map(x => `<li>${esc(x)}</li>`).join('') + '</ul>';
+projects.forEach(p => {
+  const el = document.createElement('article');
+  el.className = 'project';
+  el.innerHTML = `
+    <div class="thumb" data-slides="${p.slides.join(',')}" tabindex="0" role="button" aria-label="${esc(p.title)} 슬라이드 보기">
+      <img src="${img(p.slides[0])}" alt="${esc(p.title)} 대표 슬라이드" loading="lazy">
+    </div>
+    <div>
+      <div class="meta"><span class="no">${p.no}</span>${p.period} · ${esc(p.org)}${p.isNew ? '<span class="badge-new">NEW</span>' : ''}</div>
+      <h3>${esc(p.title)}</h3>
+      <p class="one">${esc(p.one)}</p>
+      <dl class="pro">
+        <dt class="p">PROBLEM</dt><dd>${li(p.problem)}</dd>
+        <dt class="r">MY ROLE</dt><dd>${li(p.role)}</dd>
+        <dt class="o">OUTCOME</dt><dd>${li(p.outcome)}</dd>
+      </dl>
+      <div class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+      <button class="view-btn" data-slides="${p.slides.join(',')}">슬라이드 ${p.slides.length}장 보기 ›</button>
+    </div>`;
+  list.appendChild(el);
+});
+
+const gallery = document.getElementById('gallery');
+for (const n of SHOW) {
+  const b = document.createElement('button');
+  b.dataset.slides = SHOW.join(',');
+  b.dataset.start = n;
+  b.setAttribute('aria-label', `슬라이드 ${n} 크게 보기`);
+  b.innerHTML = `<img src="${img(n)}" alt="슬라이드 ${n}" loading="lazy"><span>${n}</span>`;
+  gallery.appendChild(b);
+}
+const galPrev = document.getElementById('galPrev'), galNext = document.getElementById('galNext');
+function galState() {
+  galPrev.disabled = gallery.scrollLeft <= 2;
+  galNext.disabled = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 2;
+}
+galPrev.addEventListener('click', () => gallery.scrollBy({ left: -gallery.clientWidth * 0.9 }));
+galNext.addEventListener('click', () => gallery.scrollBy({ left: gallery.clientWidth * 0.9 }));
+gallery.addEventListener('scroll', galState, { passive: true });
+window.addEventListener('resize', galState);
+galState();
+
+// lightbox
+const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCount = document.getElementById('lbCount');
+let seq = [], pos = 0, lastFocus = null;
+function show() { lbImg.src = img(seq[pos]); lbImg.alt = `슬라이드 ${seq[pos]}`; lbCount.textContent = `${pos + 1} / ${seq.length}  ·  슬라이드 ${seq[pos]}`; }
+function open(slides, start) { lastFocus = document.activeElement; seq = slides; pos = Math.max(0, seq.indexOf(start)); show(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; lb.querySelector('.close').focus(); }
+function close() { lb.classList.remove('open'); document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
+function step(d) { pos = (pos + d + seq.length) % seq.length; show(); }
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-slides]');
+  if (t && !lb.contains(t)) { const s = t.dataset.slides.split(',').map(Number); open(s, Number(t.dataset.start || s[0])); return; }
+  const a = e.target.closest('[data-act]');
+  if (a) { ({ close, prev: () => step(-1), next: () => step(1) })[a.dataset.act](); return; }
+  if (e.target === lb) close();
+});
+document.addEventListener('keydown', e => {
+  if (lb.classList.contains('open')) {
+    if (e.key === 'Escape') close(); else if (e.key === 'ArrowLeft') step(-1); else if (e.key === 'ArrowRight') step(1);
+  } else if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('thumb')) {
+    e.preventDefault(); const s = e.target.dataset.slides.split(',').map(Number); open(s, s[0]);
+  }
+});
+</script>
+</body>
+</html>
