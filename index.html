@@ -27,29 +27,17 @@
   nav a:hover { color: var(--blue); }
 
   /* hero */
-  .hero { position: relative; overflow: hidden; background: #F2F3F6; color: var(--text); }
-  .hero::after { content: ""; position: absolute; top: 0; bottom: 0; right: 0; width: 38%; background: var(--blue); z-index: 0; }
-  .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 48px; align-items: center; min-height: 580px; padding-top: 72px; padding-bottom: 72px; }
-  .hero .eyebrow { color: var(--blue); font-weight: 800; letter-spacing: .08em; font-size: 14px; }
-  .hero h1 { font-size: clamp(28px, 3.1vw, 40px); font-weight: 800; color: var(--ink); line-height: 1.35; margin: 14px 0 22px; letter-spacing: -.025em; }
-  .hero h1 em { font-style: normal; color: var(--accent); }
-  .hero h1 b { font-weight: 800; color: var(--blue); }
-  .hero p.lead { font-size: 17px; max-width: 600px; color: var(--text); }
-  .hero .contact { margin-top: 30px; font-size: 15px; color: var(--muted); }
-  .hero .contact a { color: var(--ink); border-bottom: 1px solid var(--line); }
-  .hero .actions { margin-top: 30px; display: flex; gap: 10px; flex-wrap: wrap; }
-  .btn { display: inline-block; padding: 13px 22px; border-radius: 10px; font-weight: 700; font-size: 15px; }
-  .btn.primary { background: var(--blue); color: #fff; }
-  .btn.primary:hover { background: #0000C2; }
-  .btn.ghost { border: 1px solid #C9CCD6; color: var(--ink); background: #fff; }
-  .btn.ghost:hover { border-color: var(--blue); color: var(--blue); }
-  .hero-visual { position: relative; display: block; aspect-ratio: 1 / 1; }
-  .hero-visual img { position: absolute; border-radius: 10px; box-shadow: 0 18px 40px rgba(10, 12, 60, .22); border: 1px solid rgba(255,255,255,.6); background: #fff; }
-  .hero-visual .v3 { width: 84%; left: 0; top: 4%; z-index: 1; }
-  .hero-visual .v2 { width: 84%; left: 10%; top: 28%; z-index: 2; }
-  .hero-visual .v1 { width: 84%; left: 20%; top: 52%; z-index: 3; }
-  .hero-visual:hover .v1 { transform: translateY(-4px); }
-  .hero-visual img { transition: transform .25s ease; }
+  .hero { background: var(--blue); color: #fff; padding: 96px 0 88px; }
+  .hero .eyebrow { color: var(--cyan); font-weight: 700; letter-spacing: .08em; font-size: 14px; }
+  .hero h1 { font-size: clamp(32px, 5vw, 54px); font-weight: 800; line-height: 1.25; margin: 14px 0 22px; letter-spacing: -.02em; }
+  .hero h1 em { font-style: normal; color: var(--cyan); }
+  .hero p.lead { font-size: 18px; max-width: 720px; opacity: .92; }
+  .hero .contact { margin-top: 32px; font-size: 15px; opacity: .9; }
+  .hero .contact a { border-bottom: 1px solid rgba(255,255,255,.5); }
+  .hero .actions { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 15px; }
+  .btn.primary { background: #fff; color: var(--blue); }
+  .btn.ghost { border: 1px solid rgba(255,255,255,.6); color: #fff; }
 
   section { padding: 88px 0; }
   section.alt { background: #FAFBFD; }
@@ -80,32 +68,21 @@
   .badge-new { display: inline-block; background: var(--accent); color: #fff; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 999px; vertical-align: 3px; margin-left: 6px; letter-spacing: .04em; }
 
   /* projects */
-  .projects { display: grid; gap: 32px; }
-  .project { border: 1px solid var(--line); border-radius: 20px; background: #fff; overflow: hidden; }
-  .phead { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; padding: 32px 36px 26px; border-bottom: 1px solid var(--line); }
-  .phead .no { font-size: 40px; font-weight: 900; color: var(--blue); line-height: 1; letter-spacing: -.03em; padding-top: 2px; font-variant-numeric: tabular-nums; }
-  .project .meta { font-size: 14px; color: var(--muted); font-weight: 600; }
-  .project h3 { font-size: 25px; color: var(--ink); margin: 2px 0 8px; letter-spacing: -.015em; line-height: 1.35; }
-  .project .one { font-size: 16.5px; color: var(--text); max-width: 760px; }
-  .pbody { display: grid; grid-template-columns: 380px 1fr; gap: 32px; padding: 28px 36px; align-items: start; }
-  .project .thumb { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); cursor: zoom-in; position: sticky; top: 88px; }
+  .projects { display: grid; gap: 28px; }
+  .project { display: grid; grid-template-columns: 420px 1fr; gap: 32px; border: 1px solid var(--line); border-radius: 20px; padding: 28px; background: #fff; }
+  .project .thumb { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); cursor: zoom-in; position: relative; align-self: start; }
   .project .thumb::after { content: "슬라이드 보기 ›"; position: absolute; right: 10px; bottom: 10px; background: rgba(0,0,237,.9); color: #fff; font-size: 13px; font-weight: 700; padding: 5px 10px; border-radius: 8px; }
-  .pro { display: grid; gap: 10px; font-size: 15px; }
-  .pro .row { display: grid; grid-template-columns: 84px 1fr; gap: 14px; padding: 14px 18px; border-radius: 12px; }
-  .pro .row.p { background: var(--accent-soft); }
-  .pro .row.r { background: #fff; border: 1px solid var(--line); }
-  .pro .row.o { background: #EDF8F2; }
-  .pro .lbl { font-weight: 800; font-size: 12.5px; letter-spacing: .06em; padding-top: 3px; }
-  .pro .p .lbl { color: var(--accent); } .pro .r .lbl { color: var(--blue); } .pro .o .lbl { color: #0B8A5B; }
-  .pro ul { list-style: none; display: grid; gap: 6px; }
-  .pro li { position: relative; padding-left: 14px; line-height: 1.55; }
-  .pro li::before { content: ""; position: absolute; left: 0; top: .68em; width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: .35; }
-  .pro .o li { color: var(--ink); font-weight: 600; }
-  .pfoot { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 18px 36px; background: var(--panel); border-top: 1px solid var(--line); }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tag { background: #fff; color: var(--blue); border: 1px solid #D6DDF8; font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
-  .view-btn { display: inline-block; font-size: 14px; font-weight: 700; color: #fff; background: var(--blue); border: 0; border-radius: 10px; padding: 10px 16px; cursor: pointer; font-family: inherit; white-space: nowrap; }
-  .view-btn:hover { background: #0000C2; }
+  .project .meta { font-size: 14px; color: var(--muted); font-weight: 600; }
+  .project .meta .no { color: var(--blue); font-weight: 900; margin-right: 8px; }
+  .project h3 { font-size: 24px; color: var(--ink); margin: 4px 0 4px; letter-spacing: -.01em; }
+  .project .one { font-size: 16px; margin-bottom: 18px; }
+  .pro { display: grid; grid-template-columns: 92px 1fr; gap: 8px 14px; font-size: 15px; }
+  .pro dt { font-weight: 800; font-size: 13px; letter-spacing: .04em; padding-top: 2px; }
+  .pro dt.p { color: var(--accent); } .pro dt.r { color: var(--blue); } .pro dt.o { color: #0B8A5B; }
+  .pro dd ul { list-style: none; } .pro dd li { position: relative; padding-left: 12px; } .pro dd li::before { content: "·"; position: absolute; left: 0; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+  .tag { background: var(--blue-soft); color: var(--blue); font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
+  .view-btn { margin-top: 18px; display: inline-block; font-size: 14px; font-weight: 700; color: var(--blue); border-bottom: 2px solid var(--blue); cursor: pointer; background: none; border-top: 0; border-left: 0; border-right: 0; font-family: inherit; }
 
   /* slide gallery */
   .slides-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
@@ -137,14 +114,7 @@
 
   @media (max-width: 960px) {
     .metrics, .strengths { grid-template-columns: 1fr 1fr; }
-    .hero::after { display: none; }
-    .hero-grid { grid-template-columns: 1fr; min-height: 0; padding-top: 56px; padding-bottom: 56px; gap: 36px; }
-    .hero-visual { aspect-ratio: 16 / 11; background: var(--blue); border-radius: 18px; overflow: hidden; max-width: 640px; }
-    .hero-visual .v3 { width: 58%; left: 6%; top: 6%; }
-    .hero-visual .v2 { width: 58%; left: 20%; top: 23%; }
-    .hero-visual .v1 { width: 58%; left: 34%; top: 40%; }
-    .pbody { grid-template-columns: 1fr; }
-    .project .thumb { position: relative; top: 0; }
+    .project { grid-template-columns: 1fr; }
     .gallery button { flex-basis: 260px; }
   }
   @media (max-width: 640px) {
@@ -152,20 +122,13 @@
     .metrics, .strengths { grid-template-columns: 1fr; }
     .gallery button { flex-basis: 78%; }
     .slides-nav { display: none; }
-    .phead { grid-template-columns: 1fr; gap: 6px; padding: 24px 20px 20px; }
-    .phead .no { font-size: 30px; }
-    .project h3 { font-size: 21px; }
-    .pbody { padding: 20px; gap: 20px; }
-    .pro .row { grid-template-columns: 1fr; gap: 6px; padding: 14px 16px; }
-    .pfoot { padding: 16px 20px; }
-    .view-btn { width: 100%; text-align: center; }
+    .pro { grid-template-columns: 1fr; gap: 2px; }
+    .pro dd { margin-bottom: 8px; }
     .lb { padding: 56px 8px; }
   }
   @media print {
     header.nav, .lb, .view-btn, #slides { display: none !important; }
     .hero { background: #fff; color: var(--ink); padding: 24px 0; }
-    .hero::after, .hero-visual { display: none !important; }
-    .hero-grid { display: block; min-height: 0; padding: 0 24px; }
     .hero .eyebrow, .hero h1 em { color: var(--blue); }
     section { padding: 28px 0; break-inside: avoid; }
     .project { break-inside: avoid; }
@@ -187,22 +150,15 @@
 </header>
 
 <div class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div class="hero-text">
-      <div class="eyebrow">SERVICE PLANNER · PM</div>
-      <h1>고객의 불편을 <em>사업 성과</em>로 연결하는<br>9년차 <b>서비스기획 PM</b>, 임혜림입니다</h1>
-      <p class="lead">금융·헬스케어·커머스·교육 도메인에서 신규 사업 발굴부터 플랫폼 구축, 운영과 디지털 마케팅까지 서비스 전 과정을 리딩했습니다. 데이터로 문제를 정의하고, 이해관계자를 조율해 일정 안에 결과를 만듭니다.</p>
-      <div class="actions">
-        <a class="btn primary" href="#projects">대표 프로젝트 보기</a>
-        <a class="btn ghost" href="hyelim_portfolio_2026.pptx" download="임혜림_서비스기획_포트폴리오_2026.pptx">PPT 원본 받기</a>
-      </div>
-      <div class="contact">Contact · <a href="mailto:limlim1013@naver.com">limlim1013@naver.com</a></div>
+  <div class="wrap">
+    <div class="eyebrow">SERVICE PLANNER · PM</div>
+    <h1>고객의 불편을 <em>사업 성과</em>로 연결하는<br>9년차 서비스기획 PM, 임혜림입니다</h1>
+    <p class="lead">금융·헬스케어·커머스·교육 도메인에서 신규 사업 발굴부터 플랫폼 구축, 운영과 디지털 마케팅까지 서비스 전 과정을 리딩했습니다. 데이터로 문제를 정의하고, 이해관계자를 조율해 일정 안에 결과를 만듭니다.</p>
+    <div class="actions">
+      <a class="btn primary" href="#projects">대표 프로젝트 보기</a>
+      <a class="btn ghost" href="hyelim_portfolio_2026.pptx" download="임혜림_서비스기획_포트폴리오_2026.pptx">PPT 원본 받기</a>
     </div>
-    <a class="hero-visual" href="#projects" aria-label="대표 프로젝트로 이동">
-      <img class="v1" src="images/slide-07.jpg?v=202611192102" alt="FreyaX 프로젝트 표지">
-      <img class="v2" src="images/slide-26.jpg?v=202611192102" alt="신한자산운용 디지털 플랫폼 프로젝트 표지">
-      <img class="v3" src="images/slide-42.jpg?v=202611192102" alt="행복두끼 챌린지 프로젝트 표지">
-    </a>
+    <div class="contact">Contact · <a href="mailto:limlim1013@naver.com">limlim1013@naver.com</a></div>
   </div>
 </div>
 <section id="summary">
@@ -364,25 +320,18 @@ projects.forEach(p => {
   const el = document.createElement('article');
   el.className = 'project';
   el.innerHTML = `
-    <header class="phead">
-      <span class="no">${p.no}</span>
-      <div>
-        <div class="meta">${p.period} · ${esc(p.org)}${p.isNew ? '<span class="badge-new">NEW</span>' : ''}</div>
-        <h3>${esc(p.title)}</h3>
-        <p class="one">${esc(p.one)}</p>
-      </div>
-    </header>
-    <div class="pbody">
-      <div class="thumb" data-slides="${p.slides.join(',')}" tabindex="0" role="button" aria-label="${esc(p.title)} 슬라이드 보기">
-        <img src="${img(p.slides[0])}" alt="${esc(p.title)} 대표 슬라이드" loading="lazy">
-      </div>
-      <div class="pro">
-        <div class="row p"><div class="lbl">PROBLEM</div>${li(p.problem)}</div>
-        <div class="row r"><div class="lbl">MY ROLE</div>${li(p.role)}</div>
-        <div class="row o"><div class="lbl">OUTCOME</div>${li(p.outcome)}</div>
-      </div>
+    <div class="thumb" data-slides="${p.slides.join(',')}" tabindex="0" role="button" aria-label="${esc(p.title)} 슬라이드 보기">
+      <img src="${img(p.slides[0])}" alt="${esc(p.title)} 대표 슬라이드" loading="lazy">
     </div>
-    <div class="pfoot">
+    <div>
+      <div class="meta"><span class="no">${p.no}</span>${p.period} · ${esc(p.org)}${p.isNew ? '<span class="badge-new">NEW</span>' : ''}</div>
+      <h3>${esc(p.title)}</h3>
+      <p class="one">${esc(p.one)}</p>
+      <dl class="pro">
+        <dt class="p">PROBLEM</dt><dd>${li(p.problem)}</dd>
+        <dt class="r">MY ROLE</dt><dd>${li(p.role)}</dd>
+        <dt class="o">OUTCOME</dt><dd>${li(p.outcome)}</dd>
+      </dl>
       <div class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
       <button class="view-btn" data-slides="${p.slides.join(',')}">슬라이드 ${p.slides.length}장 보기 ›</button>
     </div>`;
