@@ -68,21 +68,32 @@
   .badge-new { display: inline-block; background: var(--accent); color: #fff; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 999px; vertical-align: 3px; margin-left: 6px; letter-spacing: .04em; }
 
   /* projects */
-  .projects { display: grid; gap: 28px; }
-  .project { display: grid; grid-template-columns: 420px 1fr; gap: 32px; border: 1px solid var(--line); border-radius: 20px; padding: 28px; background: #fff; }
-  .project .thumb { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); cursor: zoom-in; position: relative; align-self: start; }
-  .project .thumb::after { content: "슬라이드 보기 ›"; position: absolute; right: 10px; bottom: 10px; background: rgba(0,0,237,.9); color: #fff; font-size: 13px; font-weight: 700; padding: 5px 10px; border-radius: 8px; }
+  .projects { display: grid; gap: 32px; }
+  .project { border: 1px solid var(--line); border-radius: 20px; background: #fff; overflow: hidden; }
+  .phead { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; padding: 32px 36px 26px; border-bottom: 1px solid var(--line); }
+  .phead .no { font-size: 40px; font-weight: 900; color: var(--blue); line-height: 1; letter-spacing: -.03em; padding-top: 2px; font-variant-numeric: tabular-nums; }
   .project .meta { font-size: 14px; color: var(--muted); font-weight: 600; }
-  .project .meta .no { color: var(--blue); font-weight: 900; margin-right: 8px; }
-  .project h3 { font-size: 24px; color: var(--ink); margin: 4px 0 4px; letter-spacing: -.01em; }
-  .project .one { font-size: 16px; margin-bottom: 18px; }
-  .pro { display: grid; grid-template-columns: 92px 1fr; gap: 8px 14px; font-size: 15px; }
-  .pro dt { font-weight: 800; font-size: 13px; letter-spacing: .04em; padding-top: 2px; }
-  .pro dt.p { color: var(--accent); } .pro dt.r { color: var(--blue); } .pro dt.o { color: #0B8A5B; }
-  .pro dd ul { list-style: none; } .pro dd li { position: relative; padding-left: 12px; } .pro dd li::before { content: "·"; position: absolute; left: 0; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
-  .tag { background: var(--blue-soft); color: var(--blue); font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
-  .view-btn { margin-top: 18px; display: inline-block; font-size: 14px; font-weight: 700; color: var(--blue); border-bottom: 2px solid var(--blue); cursor: pointer; background: none; border-top: 0; border-left: 0; border-right: 0; font-family: inherit; }
+  .project h3 { font-size: 25px; color: var(--ink); margin: 2px 0 8px; letter-spacing: -.015em; line-height: 1.35; }
+  .project .one { font-size: 16.5px; color: var(--text); max-width: 760px; }
+  .pbody { display: grid; grid-template-columns: 380px 1fr; gap: 32px; padding: 28px 36px; align-items: start; }
+  .project .thumb { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); cursor: zoom-in; position: sticky; top: 88px; }
+  .project .thumb::after { content: "슬라이드 보기 ›"; position: absolute; right: 10px; bottom: 10px; background: rgba(0,0,237,.9); color: #fff; font-size: 13px; font-weight: 700; padding: 5px 10px; border-radius: 8px; }
+  .pro { display: grid; gap: 10px; font-size: 15px; }
+  .pro .row { display: grid; grid-template-columns: 84px 1fr; gap: 14px; padding: 14px 18px; border-radius: 12px; }
+  .pro .row.p { background: var(--accent-soft); }
+  .pro .row.r { background: #fff; border: 1px solid var(--line); }
+  .pro .row.o { background: #EDF8F2; }
+  .pro .lbl { font-weight: 800; font-size: 12.5px; letter-spacing: .06em; padding-top: 3px; }
+  .pro .p .lbl { color: var(--accent); } .pro .r .lbl { color: var(--blue); } .pro .o .lbl { color: #0B8A5B; }
+  .pro ul { list-style: none; display: grid; gap: 6px; }
+  .pro li { position: relative; padding-left: 14px; line-height: 1.55; }
+  .pro li::before { content: ""; position: absolute; left: 0; top: .68em; width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: .35; }
+  .pro .o li { color: var(--ink); font-weight: 600; }
+  .pfoot { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 18px 36px; background: var(--panel); border-top: 1px solid var(--line); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { background: #fff; color: var(--blue); border: 1px solid #D6DDF8; font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
+  .view-btn { display: inline-block; font-size: 14px; font-weight: 700; color: #fff; background: var(--blue); border: 0; border-radius: 10px; padding: 10px 16px; cursor: pointer; font-family: inherit; white-space: nowrap; }
+  .view-btn:hover { background: #0000C2; }
 
   /* slide gallery */
   .slides-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
@@ -114,7 +125,8 @@
 
   @media (max-width: 960px) {
     .metrics, .strengths { grid-template-columns: 1fr 1fr; }
-    .project { grid-template-columns: 1fr; }
+    .pbody { grid-template-columns: 1fr; }
+    .project .thumb { position: relative; top: 0; }
     .gallery button { flex-basis: 260px; }
   }
   @media (max-width: 640px) {
@@ -122,8 +134,13 @@
     .metrics, .strengths { grid-template-columns: 1fr; }
     .gallery button { flex-basis: 78%; }
     .slides-nav { display: none; }
-    .pro { grid-template-columns: 1fr; gap: 2px; }
-    .pro dd { margin-bottom: 8px; }
+    .phead { grid-template-columns: 1fr; gap: 6px; padding: 24px 20px 20px; }
+    .phead .no { font-size: 30px; }
+    .project h3 { font-size: 21px; }
+    .pbody { padding: 20px; gap: 20px; }
+    .pro .row { grid-template-columns: 1fr; gap: 6px; padding: 14px 16px; }
+    .pfoot { padding: 16px 20px; }
+    .view-btn { width: 100%; text-align: center; }
     .lb { padding: 56px 8px; }
   }
   @media print {
@@ -320,18 +337,25 @@ projects.forEach(p => {
   const el = document.createElement('article');
   el.className = 'project';
   el.innerHTML = `
-    <div class="thumb" data-slides="${p.slides.join(',')}" tabindex="0" role="button" aria-label="${esc(p.title)} 슬라이드 보기">
-      <img src="${img(p.slides[0])}" alt="${esc(p.title)} 대표 슬라이드" loading="lazy">
+    <header class="phead">
+      <span class="no">${p.no}</span>
+      <div>
+        <div class="meta">${p.period} · ${esc(p.org)}${p.isNew ? '<span class="badge-new">NEW</span>' : ''}</div>
+        <h3>${esc(p.title)}</h3>
+        <p class="one">${esc(p.one)}</p>
+      </div>
+    </header>
+    <div class="pbody">
+      <div class="thumb" data-slides="${p.slides.join(',')}" tabindex="0" role="button" aria-label="${esc(p.title)} 슬라이드 보기">
+        <img src="${img(p.slides[0])}" alt="${esc(p.title)} 대표 슬라이드" loading="lazy">
+      </div>
+      <div class="pro">
+        <div class="row p"><div class="lbl">PROBLEM</div>${li(p.problem)}</div>
+        <div class="row r"><div class="lbl">MY ROLE</div>${li(p.role)}</div>
+        <div class="row o"><div class="lbl">OUTCOME</div>${li(p.outcome)}</div>
+      </div>
     </div>
-    <div>
-      <div class="meta"><span class="no">${p.no}</span>${p.period} · ${esc(p.org)}${p.isNew ? '<span class="badge-new">NEW</span>' : ''}</div>
-      <h3>${esc(p.title)}</h3>
-      <p class="one">${esc(p.one)}</p>
-      <dl class="pro">
-        <dt class="p">PROBLEM</dt><dd>${li(p.problem)}</dd>
-        <dt class="r">MY ROLE</dt><dd>${li(p.role)}</dd>
-        <dt class="o">OUTCOME</dt><dd>${li(p.outcome)}</dd>
-      </dl>
+    <div class="pfoot">
       <div class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
       <button class="view-btn" data-slides="${p.slides.join(',')}">슬라이드 ${p.slides.length}장 보기 ›</button>
     </div>`;
