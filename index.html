@@ -27,17 +27,29 @@
   nav a:hover { color: var(--blue); }
 
   /* hero */
-  .hero { background: var(--blue); color: #fff; padding: 96px 0 88px; }
-  .hero .eyebrow { color: var(--cyan); font-weight: 700; letter-spacing: .08em; font-size: 14px; }
-  .hero h1 { font-size: clamp(32px, 5vw, 54px); font-weight: 800; line-height: 1.25; margin: 14px 0 22px; letter-spacing: -.02em; }
-  .hero h1 em { font-style: normal; color: var(--cyan); }
-  .hero p.lead { font-size: 18px; max-width: 720px; opacity: .92; }
-  .hero .contact { margin-top: 32px; font-size: 15px; opacity: .9; }
-  .hero .contact a { border-bottom: 1px solid rgba(255,255,255,.5); }
-  .hero .actions { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn { display: inline-block; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 15px; }
-  .btn.primary { background: #fff; color: var(--blue); }
-  .btn.ghost { border: 1px solid rgba(255,255,255,.6); color: #fff; }
+  .hero { position: relative; overflow: hidden; background: #F2F3F6; color: var(--text); }
+  .hero::after { content: ""; position: absolute; top: 0; bottom: 0; right: 0; width: 38%; background: var(--blue); z-index: 0; }
+  .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 48px; align-items: center; min-height: 580px; padding-top: 72px; padding-bottom: 72px; }
+  .hero .eyebrow { color: var(--blue); font-weight: 800; letter-spacing: .08em; font-size: 14px; }
+  .hero h1 { font-size: clamp(28px, 3.1vw, 40px); font-weight: 800; color: var(--ink); line-height: 1.35; margin: 14px 0 22px; letter-spacing: -.025em; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero h1 b { font-weight: 800; color: var(--blue); }
+  .hero p.lead { font-size: 17px; max-width: 600px; color: var(--text); }
+  .hero .contact { margin-top: 30px; font-size: 15px; color: var(--muted); }
+  .hero .contact a { color: var(--ink); border-bottom: 1px solid var(--line); }
+  .hero .actions { margin-top: 30px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 13px 22px; border-radius: 10px; font-weight: 700; font-size: 15px; }
+  .btn.primary { background: var(--blue); color: #fff; }
+  .btn.primary:hover { background: #0000C2; }
+  .btn.ghost { border: 1px solid #C9CCD6; color: var(--ink); background: #fff; }
+  .btn.ghost:hover { border-color: var(--blue); color: var(--blue); }
+  .hero-visual { position: relative; display: block; aspect-ratio: 1 / 1; }
+  .hero-visual img { position: absolute; border-radius: 10px; box-shadow: 0 18px 40px rgba(10, 12, 60, .22); border: 1px solid rgba(255,255,255,.6); background: #fff; }
+  .hero-visual .v3 { width: 84%; left: 0; top: 4%; z-index: 1; }
+  .hero-visual .v2 { width: 84%; left: 10%; top: 28%; z-index: 2; }
+  .hero-visual .v1 { width: 84%; left: 20%; top: 52%; z-index: 3; }
+  .hero-visual:hover .v1 { transform: translateY(-4px); }
+  .hero-visual img { transition: transform .25s ease; }
 
   section { padding: 88px 0; }
   section.alt { background: #FAFBFD; }
@@ -125,6 +137,12 @@
 
   @media (max-width: 960px) {
     .metrics, .strengths { grid-template-columns: 1fr 1fr; }
+    .hero::after { display: none; }
+    .hero-grid { grid-template-columns: 1fr; min-height: 0; padding-top: 56px; padding-bottom: 56px; gap: 36px; }
+    .hero-visual { aspect-ratio: 16 / 11; background: var(--blue); border-radius: 18px; overflow: hidden; max-width: 640px; }
+    .hero-visual .v3 { width: 58%; left: 6%; top: 6%; }
+    .hero-visual .v2 { width: 58%; left: 20%; top: 23%; }
+    .hero-visual .v1 { width: 58%; left: 34%; top: 40%; }
     .pbody { grid-template-columns: 1fr; }
     .project .thumb { position: relative; top: 0; }
     .gallery button { flex-basis: 260px; }
@@ -146,6 +164,8 @@
   @media print {
     header.nav, .lb, .view-btn, #slides { display: none !important; }
     .hero { background: #fff; color: var(--ink); padding: 24px 0; }
+    .hero::after, .hero-visual { display: none !important; }
+    .hero-grid { display: block; min-height: 0; padding: 0 24px; }
     .hero .eyebrow, .hero h1 em { color: var(--blue); }
     section { padding: 28px 0; break-inside: avoid; }
     .project { break-inside: avoid; }
@@ -167,15 +187,22 @@
 </header>
 
 <div class="hero" id="top">
-  <div class="wrap">
-    <div class="eyebrow">SERVICE PLANNER · PM</div>
-    <h1>고객의 불편을 <em>사업 성과</em>로 연결하는<br>9년차 서비스기획 PM, 임혜림입니다</h1>
-    <p class="lead">금융·헬스케어·커머스·교육 도메인에서 신규 사업 발굴부터 플랫폼 구축, 운영과 디지털 마케팅까지 서비스 전 과정을 리딩했습니다. 데이터로 문제를 정의하고, 이해관계자를 조율해 일정 안에 결과를 만듭니다.</p>
-    <div class="actions">
-      <a class="btn primary" href="#projects">대표 프로젝트 보기</a>
-      <a class="btn ghost" href="hyelim_portfolio_2026.pptx" download="임혜림_서비스기획_포트폴리오_2026.pptx">PPT 원본 받기</a>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <div class="eyebrow">SERVICE PLANNER · PM</div>
+      <h1>고객의 불편을 <em>사업 성과</em>로 연결하는<br>9년차 <b>서비스기획 PM</b>, 임혜림입니다</h1>
+      <p class="lead">금융·헬스케어·커머스·교육 도메인에서 신규 사업 발굴부터 플랫폼 구축, 운영과 디지털 마케팅까지 서비스 전 과정을 리딩했습니다. 데이터로 문제를 정의하고, 이해관계자를 조율해 일정 안에 결과를 만듭니다.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">대표 프로젝트 보기</a>
+        <a class="btn ghost" href="hyelim_portfolio_2026.pptx" download="임혜림_서비스기획_포트폴리오_2026.pptx">PPT 원본 받기</a>
+      </div>
+      <div class="contact">Contact · <a href="mailto:limlim1013@naver.com">limlim1013@naver.com</a></div>
     </div>
-    <div class="contact">Contact · <a href="mailto:limlim1013@naver.com">limlim1013@naver.com</a></div>
+    <a class="hero-visual" href="#projects" aria-label="대표 프로젝트로 이동">
+      <img class="v1" src="images/slide-07.jpg?v=202611192102" alt="FreyaX 프로젝트 표지">
+      <img class="v2" src="images/slide-26.jpg?v=202611192102" alt="신한자산운용 디지털 플랫폼 프로젝트 표지">
+      <img class="v3" src="images/slide-42.jpg?v=202611192102" alt="행복두끼 챌린지 프로젝트 표지">
+    </a>
   </div>
 </div>
 <section id="summary">
