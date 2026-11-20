@@ -5,11 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>임혜림 | 서비스기획 PM 포트폴리오</title>
 <meta name="description" content="9년차 서비스기획 PM 임혜림 포트폴리오">
+<meta name="theme-color" content="#0000ED">
+<meta property="og:type" content="website">
+<meta property="og:title" content="임혜림 | 서비스기획 PM 포트폴리오">
+<meta property="og:description" content="9년차 서비스기획 PM 임혜림 포트폴리오">
+<meta property="og:url" content="https://limlim1013-monica.github.io/hyelim-portfolio/">
+<meta property="og:image" content="https://limlim1013-monica.github.io/hyelim-portfolio/images/slide-01.jpg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
   :root {
     --blue: #0000ED; --blue-soft: #EEF2FD; --accent: #FC3B14; --accent-soft: #FFF3EF;
-    --ink: #1F1F1F; --text: #444; --muted: #7A7A7A; --line: #E3E6EE; --panel: #F4F6FB; --cyan: #A6F4FF;
+    --ink: #1F1F1F; --text: #444; --muted: #6B6B6B; --line: #E3E6EE; --panel: #F4F6FB; --cyan: #A6F4FF;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; scroll-padding-top: 72px; }
@@ -17,6 +23,10 @@
   a { color: inherit; text-decoration: none; }
   img { max-width: 100%; display: block; }
   .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  ::selection { background: var(--blue); color: #fff; }
+  .hero ::selection { background: var(--cyan); color: var(--blue); }
+  :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+  .hero :focus-visible, .lb :focus-visible { outline-color: #fff; }
 
   /* nav */
   header.nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
@@ -24,25 +34,29 @@
   .brand { font-weight: 800; color: var(--ink); letter-spacing: -.01em; }
   .brand span { color: var(--blue); }
   nav ul { display: flex; gap: 28px; list-style: none; font-size: 15px; font-weight: 500; }
+  nav a { transition: color .15s; }
   nav a:hover { color: var(--blue); }
 
   /* hero */
   .hero { background: var(--blue); color: #fff; padding: 96px 0 88px; }
   .hero .eyebrow { color: var(--cyan); font-weight: 700; letter-spacing: .08em; font-size: 14px; }
-  .hero h1 { font-size: clamp(32px, 5vw, 54px); font-weight: 800; line-height: 1.25; margin: 14px 0 22px; letter-spacing: -.02em; }
+  .hero h1 { font-size: clamp(32px, 5vw, 54px); font-weight: 800; line-height: 1.25; margin: 14px 0 22px; letter-spacing: -.02em; text-wrap: balance; }
   .hero h1 em { font-style: normal; color: var(--cyan); }
   .hero p.lead { font-size: 18px; max-width: 720px; opacity: .92; }
   .hero .contact { margin-top: 32px; font-size: 15px; opacity: .9; }
-  .hero .contact a { border-bottom: 1px solid rgba(255,255,255,.5); }
+  .hero .contact a { border-bottom: 1px solid rgba(255,255,255,.5); transition: border-color .15s; }
+  .hero .contact a:hover { border-bottom-color: #fff; }
   .hero .actions { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn { display: inline-block; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 15px; }
+  .btn { display: inline-block; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 15px; border: 1px solid transparent; transition: background-color .15s, border-color .15s; }
   .btn.primary { background: #fff; color: var(--blue); }
-  .btn.ghost { border: 1px solid rgba(255,255,255,.6); color: #fff; }
+  .btn.primary:hover { background: var(--blue-soft); }
+  .btn.ghost { border-color: rgba(255,255,255,.6); color: #fff; }
+  .btn.ghost:hover { background: rgba(255,255,255,.12); border-color: #fff; }
 
   section { padding: 88px 0; }
   section.alt { background: #FAFBFD; }
   .sec-label { color: var(--blue); font-weight: 800; font-size: 14px; letter-spacing: .08em; }
-  .sec-title { font-size: clamp(26px, 3.4vw, 36px); color: var(--ink); font-weight: 800; letter-spacing: -.02em; margin: 6px 0 36px; }
+  .sec-title { font-size: clamp(26px, 3.4vw, 36px); color: var(--ink); font-weight: 800; letter-spacing: -.02em; line-height: 1.3; margin: 6px 0 36px; }
 
   /* metrics */
   .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -59,22 +73,23 @@
   .job { position: relative; padding: 0 0 40px 24px; }
   .job:last-child { padding-bottom: 0; }
   .job::before { content: ""; position: absolute; left: -36px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid var(--blue); }
-  .job .period { font-size: 14px; color: var(--muted); font-weight: 600; }
+  .job .period { font-size: 14px; color: var(--muted); font-weight: 600; font-variant-numeric: tabular-nums; }
   .job h3 { font-size: 22px; color: var(--ink); margin: 2px 0 2px; }
   .job .role { font-size: 15px; color: var(--blue); font-weight: 600; margin-bottom: 10px; }
   .job ul { list-style: none; display: grid; gap: 4px; }
   .job li { font-size: 15.5px; padding-left: 14px; position: relative; }
   .job li::before { content: ""; position: absolute; left: 0; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
-  .badge-new { display: inline-block; background: var(--accent); color: #fff; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 999px; vertical-align: 3px; margin-left: 6px; letter-spacing: .04em; }
 
   /* projects */
   .projects { display: grid; gap: 28px; }
   .project { display: grid; grid-template-columns: 420px 1fr; gap: 32px; border: 1px solid var(--line); border-radius: 20px; padding: 28px; background: #fff; }
-  .project .thumb { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); cursor: zoom-in; position: relative; align-self: start; }
+  .project .thumb { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); cursor: zoom-in; position: relative; align-self: start; aspect-ratio: 16 / 9; background: var(--panel); transition: border-color .15s; }
+  .project .thumb:hover { border-color: var(--blue); }
+  .project .thumb img { width: 100%; height: 100%; object-fit: cover; }
   .project .thumb::after { content: "슬라이드 보기 ›"; position: absolute; right: 10px; bottom: 10px; background: rgba(0,0,237,.9); color: #fff; font-size: 13px; font-weight: 700; padding: 5px 10px; border-radius: 8px; }
   .project .meta { font-size: 14px; color: var(--muted); font-weight: 600; }
   .project .meta .no { color: var(--blue); font-weight: 900; margin-right: 8px; }
-  .project h3 { font-size: 24px; color: var(--ink); margin: 4px 0 4px; letter-spacing: -.01em; }
+  .project h3 { font-size: 24px; color: var(--ink); margin: 4px 0 4px; letter-spacing: -.01em; line-height: 1.35; }
   .project .one { font-size: 16px; margin-bottom: 18px; }
   .pro { display: grid; grid-template-columns: 92px 1fr; gap: 8px 14px; font-size: 15px; }
   .pro dt { font-weight: 800; font-size: 13px; letter-spacing: .04em; padding-top: 2px; }
@@ -88,14 +103,15 @@
   .slides-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
   .slides-head .sec-title { margin-bottom: 0; }
   .slides-nav { display: flex; gap: 8px; flex-shrink: 0; }
-  .slides-nav button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: var(--ink); font-size: 20px; line-height: 1; cursor: pointer; font-family: inherit; }
+  .slides-nav button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: var(--ink); font-size: 20px; line-height: 1; cursor: pointer; font-family: inherit; transition: border-color .15s, color .15s; }
   .slides-nav button:hover:not(:disabled) { border-color: var(--blue); color: var(--blue); }
   .slides-nav button:disabled { opacity: .35; cursor: default; }
   .gallery { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; overscroll-behavior-x: contain; padding-bottom: 14px; scrollbar-width: thin; scrollbar-color: #C9CCE6 transparent; }
   .gallery::-webkit-scrollbar { height: 8px; }
   .gallery::-webkit-scrollbar-thumb { background: #C9CCE6; border-radius: 4px; }
-  .gallery button { flex: 0 0 300px; scroll-snap-align: start; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #fff; cursor: zoom-in; padding: 0; position: relative; }
-  .gallery button img { width: 100%; }
+  .gallery button { flex: 0 0 300px; scroll-snap-align: start; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--panel); cursor: zoom-in; padding: 0; position: relative; aspect-ratio: 16 / 9; transition: border-color .15s; }
+  .gallery button img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery button:focus-visible { outline-offset: -2px; border-radius: 10px; }
   .gallery button span { position: absolute; left: 8px; top: 8px; background: rgba(0,0,0,.6); color: #fff; font-size: 12px; font-weight: 700; padding: 2px 7px; border-radius: 6px; }
   .gallery button:hover { border-color: var(--blue); }
 
@@ -103,14 +119,16 @@
   .lb { position: fixed; inset: 0; background: rgba(10,12,30,.92); display: none; align-items: center; justify-content: center; z-index: 100; padding: 56px 72px; }
   .lb.open { display: flex; }
   .lb img { max-height: 100%; max-width: 100%; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,.4); }
-  .lb .ctl { position: absolute; background: rgba(255,255,255,.12); color: #fff; border: 0; width: 48px; height: 48px; border-radius: 50%; font-size: 24px; cursor: pointer; }
+  .lb .ctl { position: absolute; background: rgba(255,255,255,.12); color: #fff; border: 0; width: 48px; height: 48px; border-radius: 50%; font-size: 24px; line-height: 1; cursor: pointer; font-family: inherit; transition: background-color .15s; }
+  .lb .ctl:focus-visible { border-radius: 50%; }
   .lb .ctl:hover { background: rgba(255,255,255,.25); }
   .lb .prev { left: 14px; top: 50%; transform: translateY(-50%); } .lb .next { right: 14px; top: 50%; transform: translateY(-50%); }
   .lb .close { right: 14px; top: 10px; }
-  .lb .count { position: absolute; bottom: 16px; left: 0; right: 0; text-align: center; color: #cfd3e6; font-size: 14px; }
+  .lb .count { position: absolute; bottom: 16px; left: 0; right: 0; text-align: center; color: #cfd3e6; font-size: 14px; font-variant-numeric: tabular-nums; }
 
   footer { background: #0A0A3A; color: #C9CCE6; padding: 48px 0; font-size: 14px; }
   footer b { color: #fff; }
+  footer a:hover { color: #fff; }
 
   @media (max-width: 960px) {
     .metrics, .strengths { grid-template-columns: 1fr 1fr; }
@@ -124,7 +142,18 @@
     .slides-nav { display: none; }
     .pro { grid-template-columns: 1fr; gap: 2px; }
     .pro dd { margin-bottom: 8px; }
-    .lb { padding: 56px 8px; }
+    .lb { padding: 64px 8px; }
+    .lb .prev, .lb .next { top: auto; bottom: 8px; transform: none; }
+    .hero { padding: 64px 0 60px; }
+    .hero h1 br { display: none; }
+    .hero p.lead { font-size: 16.5px; }
+    section { padding: 64px 0; }
+    .project { padding: 20px; gap: 20px; }
+    .project h3 { font-size: 21px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html, .gallery { scroll-behavior: auto; }
+    * { transition: none !important; }
   }
   @media print {
     header.nav, .lb, .view-btn, #slides { display: none !important; }
@@ -152,7 +181,7 @@
 <div class="hero" id="top">
   <div class="wrap">
     <div class="eyebrow">SERVICE PLANNER · PM</div>
-    <h1>고객의 불편을 <em>사업 성과</em>로 연결하는<br>9년차 서비스기획 PM, 임혜림입니다</h1>
+    <h1>고객의 불편을 <em>사업 성과</em>로 연결하는 <br>9년차 서비스기획 PM, 임혜림입니다</h1>
     <p class="lead">금융·헬스케어·커머스·교육 도메인에서 신규 사업 발굴부터 플랫폼 구축, 운영과 디지털 마케팅까지 서비스 전 과정을 리딩했습니다. 데이터로 문제를 정의하고, 이해관계자를 조율해 일정 안에 결과를 만듭니다.</p>
     <div class="actions">
       <a class="btn primary" href="#projects">대표 프로젝트 보기</a>
@@ -266,7 +295,7 @@
 </section>
 
 <footer>
-  <div class="wrap"><b>임혜림 Hyelim, Lim</b> · 서비스기획 PM · limlim1013@naver.com</div>
+  <div class="wrap"><b>임혜림 Hyelim, Lim</b> · 서비스기획 PM · <a href="mailto:limlim1013@naver.com">limlim1013@naver.com</a></div>
 </footer>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="슬라이드 보기">
@@ -279,7 +308,8 @@
 
 <script>
 const SHOW = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 42, 43, 44, 45, 46, 47, 48];
-const img = n => `images/slide-${String(n).padStart(2, '0')}.jpg?v=202611201410`;
+const img = n => `images/slide-${String(n).padStart(2, '0')}.jpg?v=202611201450`;
+const num = n => SHOW.indexOf(n) + 1; // 화면에 보이는 번호는 갤러리 순서(1부터 연속)
 
 const projects = [
   { no: '01', period: '2026', org: '에임넥스트', title: 'FreyaX · 전용 밴드 연동 여성 헬스케어 앱',
@@ -289,7 +319,7 @@ const projects = [
     outcome: ['타겟 웨어러블 실사용률 20.0%, 앱·워치 연동 선호 68.7%를 근거로 App-first 진입안 제안', '전용 기기는 2단계로 분리해 개발 범위와 리스크 축소'],
     tags: ['단말 연동', '회원 정책', '요구사항 정의', '수요조사'], slides: [7, 8, 9, 10, 11, 12, 13] },
   { no: '02', period: '2021–2024', org: '신한자산운용', title: '신한자산운용 디지털 플랫폼',
-    one: '6개 부서 심층 인터뷰로 요구사항을 정의하고, Admin과 법적 의무 공시까지 포함해 플랫폼을 재설계했습니다.',
+    one: '6개 부서 심층 인터뷰로 요구사항을 정의하고, Admin과 법적 의무 공시까지 포함해 플랫폼을 구축했습니다.',
     problem: ['상품 정보 탐색이 어렵고, 법적 의무 공시·민원·콘텐츠 관리 체계가 노후화'],
     role: ['2주간 6개 부서 심층 인터뷰, 문제 카테고리화와 메뉴 속성 정의', 'IA 설계, PC·MO·Admin UI/UX 기획', '테스트케이스 정의·검수, 운영 배포 관리'],
     outcome: ['디지털 플랫폼 방문자 수 138% 증가', '민원 신청·법적 의무 공시 메뉴로 개인정보·법적 이슈 예방'],
@@ -324,7 +354,7 @@ projects.forEach(p => {
       <img src="${img(p.slides[0])}" alt="${esc(p.title)} 대표 슬라이드" loading="lazy">
     </div>
     <div>
-      <div class="meta"><span class="no">${p.no}</span>${p.period} · ${esc(p.org)}${p.isNew ? '<span class="badge-new">NEW</span>' : ''}</div>
+      <div class="meta"><span class="no">${p.no}</span>${p.period} · ${esc(p.org)}</div>
       <h3>${esc(p.title)}</h3>
       <p class="one">${esc(p.one)}</p>
       <dl class="pro">
@@ -343,8 +373,8 @@ for (const n of SHOW) {
   const b = document.createElement('button');
   b.dataset.slides = SHOW.join(',');
   b.dataset.start = n;
-  b.setAttribute('aria-label', `슬라이드 ${n} 크게 보기`);
-  b.innerHTML = `<img src="${img(n)}" alt="슬라이드 ${n}" loading="lazy"><span>${n}</span>`;
+  b.setAttribute('aria-label', `슬라이드 ${num(n)} 크게 보기`);
+  b.innerHTML = `<img src="${img(n)}" alt="슬라이드 ${num(n)}" loading="lazy"><span>${num(n)}</span>`;
   gallery.appendChild(b);
 }
 const galPrev = document.getElementById('galPrev'), galNext = document.getElementById('galNext');
@@ -361,7 +391,11 @@ galState();
 // lightbox
 const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCount = document.getElementById('lbCount');
 let seq = [], pos = 0, lastFocus = null;
-function show() { lbImg.src = img(seq[pos]); lbImg.alt = `슬라이드 ${seq[pos]}`; lbCount.textContent = `${pos + 1} / ${seq.length}  ·  슬라이드 ${seq[pos]}`; }
+function show() {
+  lbImg.src = img(seq[pos]); lbImg.alt = `슬라이드 ${num(seq[pos])}`;
+  lbCount.textContent = seq.length === SHOW.length ? `${pos + 1} / ${seq.length}` : `${pos + 1} / ${seq.length}  ·  슬라이드 ${num(seq[pos])}`;
+  if (seq.length > 1) [1, -1].forEach(d => { new Image().src = img(seq[(pos + d + seq.length) % seq.length]); });
+}
 function open(slides, start) { lastFocus = document.activeElement; seq = slides; pos = Math.max(0, seq.indexOf(start)); show(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; lb.querySelector('.close').focus(); }
 function close() { lb.classList.remove('open'); document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
 function step(d) { pos = (pos + d + seq.length) % seq.length; show(); }
@@ -375,10 +409,21 @@ document.addEventListener('click', e => {
 document.addEventListener('keydown', e => {
   if (lb.classList.contains('open')) {
     if (e.key === 'Escape') close(); else if (e.key === 'ArrowLeft') step(-1); else if (e.key === 'ArrowRight') step(1);
+    else if (e.key === 'Tab') {
+      const f = [...lb.querySelectorAll('button')], i = f.indexOf(document.activeElement);
+      e.preventDefault(); f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+    }
   } else if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('thumb')) {
     e.preventDefault(); const s = e.target.dataset.slides.split(',').map(Number); open(s, s[0]);
   }
 });
+let touchX = null;
+lb.addEventListener('touchstart', e => { touchX = e.touches.length === 1 ? e.touches[0].clientX : null; }, { passive: true });
+lb.addEventListener('touchend', e => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX; touchX = null;
+  if (Math.abs(dx) > 48) step(dx < 0 ? 1 : -1);
+}, { passive: true });
 </script>
 </body>
 </html>
