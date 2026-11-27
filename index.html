@@ -162,6 +162,7 @@
     section { padding: 28px 0; break-inside: avoid; }
     .project { break-inside: avoid; }
   }
+  .pchips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 14px}.pc{font:inherit;font-size:13px;color:var(--text);background:#fff;border:1px solid var(--line);border-radius:10px;padding:7px 12px;cursor:pointer;display:inline-flex;gap:6px;align-items:baseline}.pc b{color:var(--ink);font-size:13px}.pc.on{border-color:var(--blue);background:var(--blue-soft);cursor:default}.pc.on b{color:var(--blue)}
 </style>
 </head>
 <body>
@@ -284,7 +285,7 @@
   <div class="wrap">
     <div class="sec-label">SLIDES</div>
     <div class="slides-head">
-      <h2 class="sec-title">전체 슬라이드 (50장)</h2>
+      <h2 class="sec-title">전체 슬라이드 (58장)</h2>
       <div class="slides-nav">
         <button type="button" id="galPrev" aria-label="이전 슬라이드 목록">‹</button>
         <button type="button" id="galNext" aria-label="다음 슬라이드 목록">›</button>
@@ -317,7 +318,8 @@ const projects = [
     problem: ['전용 웨어러블(CHANDA 밴드) 중심 사업안의 시장성이 검증되지 않음'],
     role: ['1·2차 수요조사 설계·배포·분석, TF 보고', '앱 상세 요구정의·회원가입 정책·의사결정 관리표 작성', '밴드 페어링·연결 실패 케이스 정의, 메인·라이프로그·리포트 화면 기획, 밴드 연동 TS/TC 관리', '밴드 홈·알림·설정 화면설계서 작성(알림 조건·진동·화면 전환), 디자인 결과물 검토'],
     outcome: ['타겟 웨어러블 실사용률 20.0%, 앱·워치 연동 선호 68.7%를 근거로 App-first 진입안 제안', '전용 기기는 2단계로 분리해 개발 범위와 리스크 축소'],
-    tags: ['단말 연동', '회원 정책', '요구사항 정의', '수요조사'], slides: [7, 8, 9, 10, 11, 12, 13] },
+    tags: ['단말 연동', '회원 정책', '요구사항 정의', '수요조사'], slides: [7, 8, 9, 10, 11, 12, 13],
+    related: [{ name: '솜즈', short: '진료 연동 설계', slides: [14, 15] }, { name: 'Snoozz', short: '사업 재개 제안', slides: [16, 17] }] },
   { no: '02', period: '2021–2024', org: '신한자산운용', title: '신한자산운용 디지털 플랫폼',
     one: '6개 부서 심층 인터뷰로 요구사항을 정의하고, Admin과 법적 의무 공시까지 포함해 플랫폼을 구축했습니다.',
     problem: ['상품 정보 탐색이 어렵고, 법적 의무 공시·민원·콘텐츠 관리 체계가 노후화'],
@@ -367,7 +369,7 @@ projects.forEach(p => {
     </div>
     <div>
       <div class="meta"><span class="no">${p.no}</span>${p.period} · ${esc(p.org)}</div>
-      <h3>${esc(p.title)}</h3>
+      <h3>${p.related ? 'FreyaX 외 2건 · 디지털 헬스케어 사업 기획' : esc(p.title)}</h3>${p.related ? `<div class="pchips"><span class="pc on"><b>FreyaX</b>웨어러블 앱 사업 검증</span>${p.related.map(x => `<button class="pc" data-slides="${x.slides.join(',')}"><b>${esc(x.name)}</b>${esc(x.short)} ›</button>`).join('')}</div>` : ''}
       <p class="one">${esc(p.one)}</p>
       <dl class="pro">
         <dt class="p">PROBLEM</dt><dd>${li(p.problem)}</dd>
